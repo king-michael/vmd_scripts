@@ -27,11 +27,13 @@ proc write_pdb_with_conect {fname {molid top}} {
   set f [open $fname {WRONLY CREAT APPEND}] ;# instead of "a"
   
   foreach bond [$sel getbonds] i [$sel list] {
-    set str [format "%6s%5i" "CONECT" [incr i]]
-    foreach b $bond {
-    set str [format "$str%5i" [incr b]]
+    if {[llength $bond]} {
+      set str [format "%6s%5i" "CONECT" [incr i]]
+      foreach b $bond {
+        set str [format "$str%5i" [incr b]]
+      }
+      puts $f $str
     }
-    puts $f $str
   }
   
   close $f
