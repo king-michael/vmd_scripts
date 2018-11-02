@@ -1,4 +1,6 @@
 # Python implementations for VMD
+## requirements
+* only tested with `python2.7` and `vmd_1.9.4beta`!
 
 ## helper_functions.tcl
 ### usage:
@@ -36,7 +38,7 @@ First load the script, then use ``run()`` to load and connect your files.
 
 **Load the script**:
 ```
-gopython /home/micha/SIM-PhD-King/gits/md_utilites/vmd_util/live_fes.py
+gopython live_fes.py
 ```
 
 **start the command**:
