@@ -90,7 +90,7 @@ proc render_trans {{render_type snapshot} {filename vmdscene.tga} {render_option
   puts "create transparent"
   #::ExecTool::exec convert .tmp-S${ext} -negate .tmp-M.png
   #::ExecTool::exec  convert .tmp${ext} .tmp-M.png -alpha off -compose copy-opacity -composite $fname.png
-  ::ExecTool::exec convert .tmp${ext} \( .tmp-S${ext} -colorspace gray -negate \) -alpha off -compose copy_opacity -composite  $fname.png
+  ::ExecTool::exec convert .tmp${ext} \( .tmp-S${ext} -colorspace gray -negate \) -alpha off -compose copy_opacity -composite  [file join $path $fname.png]
 
   ::ExecTool::exec rm -f .tmp${ext} .tmp-S${ext}
 
