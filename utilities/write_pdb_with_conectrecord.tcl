@@ -19,8 +19,7 @@ proc write_pdb_with_conect {fname {molid top}} {
   # function to write the connect record for bonded atoms.
   
   # create pdb file
-  animate write pdb $fname $molid
-  
+  animate write pdb $fname beg now end now $molid
   
   set sel [atomselect $molid all]
 
