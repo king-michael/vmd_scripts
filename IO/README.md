@@ -12,6 +12,9 @@ function to write a pdb with **CONECT** record (**only for bonded atoms!**)
   
 ## `read_user_files.tcl`
 Functions to read files from users into VMD
+* `get_column_of_file filename {column 0}` <br>
+    Function to read a column from a file
+
 * `read_cluster_per_frame {filename {property user} {value 1} {molid top}}` <br>
   Reads a file with atom ID per line, assigns for all atomID's in this line the `value` to `prorpery`. <br>
   example: `read_cluster_per_frame ./atoms_in_cluster_frame-0_dp-0.32.dat user 1 top`

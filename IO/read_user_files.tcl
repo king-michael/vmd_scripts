@@ -1,5 +1,24 @@
 # read in user data
 
+# Read frames from file
+proc get_column_of_file {filename {column 0}} {
+  set list_column ""
+  set fp [open ${filename} "r"]
+  gets ${fp} firstline
+  # get rid of the comment sign
+  if {[string match [string index $firstline 0]  "#"]} {
+    set firstline [lrange ${firstline} 1 end]
+  }
+  puts "get column '[lindex ${firstline} ${column}]'"
+  while { [gets ${fp} line] >= 0 } {
+    lappend list_column [lindex ${line} ${column}]
+  }
+  close ${fp}
+
+  return ${list_column}
+}
+
+
 proc read_cluster_per_frame {filename {property user} {value 1} {molid top}} {
   # read_cluster_per_frame ./atoms_in_cluster_frame-0_dp-0.32.dat user 1 top
   set fp [open ${filename} "r"]
